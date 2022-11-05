@@ -1,0 +1,17 @@
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+servers: 1
+image: rancher/k3s:v1.20.4-k3s1
+registries:
+  create: 
+    name: local-registry
+  config: |
+    mirrors:
+      "dev.registry":
+        endpoint:
+          - http://dev.registry:5000
+options:
+  k3d:
+    disableLoadbalancer: true # same as `--no-lb`
+    wait: true
+    timeout: "60s"
