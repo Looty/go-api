@@ -1,0 +1,19 @@
+version: '3'
+
+env:
+  CLUSTER_NAME: lab
+  CLUSTER_CONFIG_PATH: ./cluster.yaml
+
+tasks:
+  init:
+    cmds:
+      - k3d cluster create $CLUSTER_NAME -c $CLUSTER_CONFIG_PATH
+      - tilt up
+    desc:
+      Initialize the k3d cluster, along with Tilt
+  destroy:
+    cmds:
+      - k3d cluster delete $CLUSTER_NAME
+      - tilt down
+    desc:
+      Destroy the k3d cluster, cleaning Tilt
