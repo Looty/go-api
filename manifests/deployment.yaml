@@ -20,6 +20,11 @@ spec:
           envFrom:
           - configMapRef:
               name: go-api
+          env:
+          - name: APP_VERSION
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
           ports:
             - containerPort: 8080
           readinessProbe:
