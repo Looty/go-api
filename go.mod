@@ -1,4 +1,4 @@
-module github.com/Looty/go-api
+module go-api
 
 go 1.19
 

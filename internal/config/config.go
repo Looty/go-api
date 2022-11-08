@@ -1,4 +1,4 @@
-package internal
+package config
 
 type Config struct {
 	Port    string `envconfig:"APP_PORT"`
